@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="app_name">Rádio M80</string>    
+    <string name="song_name_unavailable">Não disponível</string>
+    <string name="artist_name_unavailable">Não disponível</string>
+    <string name="dj_label">NO AR:</string>    
+    <string name="unavailable_item">Não disponível</string>    
+    <string name="about">Sobre</string>
+    <string name="last_songs_title">Últimas Músicas</string>    
+</resources>

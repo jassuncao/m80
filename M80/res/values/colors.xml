@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_song_name">#ABABAB</color>
+    <color name="color_dj_label">#FFFFFF</color>
+    <color name="color_artist_name">#FFFFFF</color>
+    <color name="color_time_played">#FFFFFF</color>
+</resources>

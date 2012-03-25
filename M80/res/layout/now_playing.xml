@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/shape_background_grey"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner" />        
+
+        <ImageView
+            android:id="@+id/albumArt"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/imageView1"
+            android:src="@drawable/capa_indisponivel" />
+
+        <TextView
+            android:id="@+id/artistName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/albumArt"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/albumArt"
+            android:singleLine="true"
+            android:text="@string/artist_name_unavailable"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/songName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/artistName"
+            android:layout_below="@+id/artistName"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/song_name_unavailable"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/color_song_name" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/songName"
+            android:layout_below="@+id/songName"
+            android:text="@string/dj_label"
+            android:textStyle="bold"
+            android:textColor="@color/color_dj_label" />
+
+        <TextView
+            android:id="@+id/dj_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/textView1"
+            android:text="@string/unavailable_item" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/albumArt"
+            android:background="@drawable/shape_background_red" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/view1"
+            android:layout_alignTop="@+id/view1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/last_songs_title"
+            android:textColor="@color/color_artist_name" />
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/view1" >
+
+        </ListView>
+
+    </RelativeLayout>

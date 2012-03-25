@@ -1,0 +1,2 @@
+Web service now_playing:
+http://cotonete.clix.pt/webservices/now_playing.asmx
