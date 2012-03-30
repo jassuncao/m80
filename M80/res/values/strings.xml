@@ -6,5 +6,8 @@
     <string name="dj_label">NO AR:</string>    
     <string name="unavailable_item">Não disponível</string>    
     <string name="about">Sobre</string>
-    <string name="last_songs_title">Últimas Músicas</string>    
+    <string name="last_songs_title">Últimas Músicas</string>
+    <string name="nowPlayingLabel">No Ar</string>
+    <string name="traffic_label">Trânsito</string>
+    <string name="frequencies_label">Frequências</string>     
 </resources>

@@ -32,7 +32,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class M80Activity extends Activity {
+public class NowPlayingActivity extends Activity {
 	private static final String TAG = "M80";
 	private static final int ALBUM_ART_HEIGHT = 90;
 	private static final int ALBUM_ART_WIDTH = 90;
