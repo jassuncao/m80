@@ -73,6 +73,8 @@ public class NowPlayingActivity extends Activity {
     protected void onStart() {
     	super.onStart();   
     	timer = new Timer();
+    	//TODO: Don't use a fixed rate timer. When a new song starts, change the period to the song length average.
+    	//After this timer expires, change to a higher frequency timer
     	timer.scheduleAtFixedRate(new TimerTask() {			
 			@Override
 			public void run() {

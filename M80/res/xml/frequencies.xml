@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<frequencies>
+    <frequency value="94.4 FM" name="Aveiro" coordinates="40.6478, -8.653"/>
+    <frequency value="106.4 FM" name="Beja" coordinates="38.041, -7.866"/>
+    <frequency value="98.4 FM" name="Coimbra" coordinates="40.222, -8.430"/>
+    <!-- Mendro -->
+    <frequency value="106.4 FM" name="Évora" coordinates="38.2654, -7.7353"/>
+    <frequency value="106.1 FM" name="Faro" coordinates="37.029, -7.936"/>
+    <frequency value="93.0 FM" name="Leiria" coordinates="39.769, -8.807"/>
+    <frequency value="104.3 FM" name="Lisboa" coordinates="38.72719, -9.18918"/>
+    <frequency value="103.8 FM" name="Fafe" coordinates="41.4537, -8.172"/>
+    <frequency value="106.7 FM" name="Portalegre" coordinates="39.2992, -7.431"/>
+    <!-- Monchique -->
+    <frequency value="107.1 FM" name="Portimão" coordinates="37.3149, -8.5924"/>
+    <!-- Monte da Virgem, Gaia -->
+    <frequency value="90.0 FM" name="Porto" coordinates="41.108119, -8.589640"/>
+    <!-- Montejunto -->
+    <frequency value="96.4 FM" name="Santarém" coordinates="39.1746, -9.0489"/>
+    <!-- Grandola -->
+    <frequency value="107.5 FM" name="Sines" coordinates="38.187, -8.570"/>
+    <frequency value="104.3 FM" name="Setúbal" coordinates="38.556, -8.888"/>
+    <frequency value="95.6 FM" name="Viseu" coordinates="40.717, -7.700"/>
+    <frequency value="97.4 FM" name="Vila Real" coordinates="41.361, -7.744"/>
+</frequencies>
