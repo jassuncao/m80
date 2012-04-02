@@ -114,7 +114,7 @@ public class NowPlayingActivity extends Activity {
     
     protected void retrieveInfo() {
     	Log.d(TAG,"retrieveInfo");
-    	AndroidSaxFeedParser parser = new AndroidSaxFeedParser(NOW_PLAYING_URL);    	
+    	NowPlayingFeedParser parser = new NowPlayingFeedParser(NOW_PLAYING_URL);    	
     	final RadioInfo info = parser.parse();
     	Log.d(TAG, info.toString());
     	if(info!=null && !info.equals(latestRadioInfo)) {

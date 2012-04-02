@@ -17,11 +17,11 @@ import android.util.Xml;
  * @author jassuncao
  *
  */
-public class AndroidSaxFeedParser{
+public class NowPlayingFeedParser{
 	
 	final URL feedUrl;
 	
-	protected AndroidSaxFeedParser(String feedUrl){
+	protected NowPlayingFeedParser(String feedUrl){
         try {
             this.feedUrl = new URL(feedUrl);
         } catch (MalformedURLException e) {
