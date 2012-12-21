@@ -13,6 +13,7 @@
     <string name="closestFrequency_label">Mais próximas</string>
     <string name="allFrequencies_label">Todas</string>
     <string name="frequenciesLoadingError">Não foi possível carregar lista de frequências</string>
+    <string name="trafficLoadingError">Não foi possível obter informação de trânsito</string>
     <string name="sort_alphabetically">Ordenar por nome</string>
     <string name="sort_alphabetically_short">Por nome</string>
     <string name="sort_by_distance">Ordenar por proximidade</string>
