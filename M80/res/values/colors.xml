@@ -4,4 +4,5 @@
     <color name="color_dj_label">#FFFFFF</color>
     <color name="color_artist_name">#FFFFFF</color>
     <color name="color_time_played">#FFFFFF</color>
+    <color name="color_black">#000000</color>
 </resources>

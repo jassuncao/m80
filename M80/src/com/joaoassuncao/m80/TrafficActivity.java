@@ -17,6 +17,10 @@ import org.xml.sax.SAXException;
 
 import android.app.ExpandableListActivity;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
+import android.graphics.drawable.shapes.Shape;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +32,9 @@ import android.widget.AbsListView;
 import android.widget.Adapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,8 +62,8 @@ public class TrafficActivity extends ExpandableListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		adapter = new TrafficInformationAdapter(this);
-		setListAdapter(adapter);
-	}
+		setListAdapter(adapter);		
+	}	
 
 	@Override
 	protected void onStart() {
@@ -80,6 +86,21 @@ public class TrafficActivity extends ExpandableListActivity {
 	protected void onStop() {
 		super.onStop();
 		timer.cancel();
+	}
+	
+	@Override
+	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View itemView = inflater.inflate(R.layout.traffic_item_view,null);
+		PopupWindow popup = new PopupWindow(itemView,200,300,false);
+		ShapeDrawable dw = new ShapeDrawable(new RectShape());
+		dw.getPaint().setColor(0x00FF00);		
+		//dw.setAlpha(220);		
+		popup.setBackgroundDrawable(dw);
+		popup.setOutsideTouchable(true);
+		//popup.showAsDropDown(v);
+		popup.showAtLocation(parent, Gravity.CENTER,0,0);
+		return true;		
 	}
 
 	protected void retrieveTrafficInfo() {

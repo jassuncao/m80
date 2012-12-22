@@ -67,14 +67,16 @@ public class TrafficInformationAdapter extends BaseExpandableListAdapter {
 		TrafficInformationItem item = getChild(groupPosition, childPosition);
 		if (item != null) {
 			ImageView iconView = (ImageView) v.findViewById(R.id.trafficInfoView_icon);
-			TextView localeView = (TextView) v.findViewById(R.id.trafficInfoView_locale);
-			TextView messageView = (TextView) v.findViewById(R.id.trafficInfoView_message);
+			TextView localeView = (TextView) v.findViewById(R.id.trafficInfoView_locale);			
 			if (localeView != null) {
 				localeView.setText(item.getLocale());
 			}
+			/*
+			TextView messageView = (TextView) v.findViewById(R.id.trafficInfoView_message);
 			if (messageView != null) {
 				messageView.setText(item.getMessage());
 			}
+			*/
 			if(iconView!=null){
 				int resource;
 				switch (item.getLight()) {
