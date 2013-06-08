@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"    
+    android:layout_height="match_parent"
     android:background="@color/color_black"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="8dp" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/trafficInfoItem_locale"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -14,10 +15,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/trafficInfoItem_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </LinearLayout>

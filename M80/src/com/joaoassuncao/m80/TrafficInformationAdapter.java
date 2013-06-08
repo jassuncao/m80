@@ -62,7 +62,7 @@ public class TrafficInformationAdapter extends BaseExpandableListAdapter {
 		View v = convertView;
 		if (v == null) {			
 			//LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = inflater.inflate(R.layout.traffic_info_view, null);
+			v = inflater.inflate(R.layout.traffic_info_row, null);
 		}
 		TrafficInformationItem item = getChild(groupPosition, childPosition);
 		if (item != null) {
@@ -78,21 +78,7 @@ public class TrafficInformationAdapter extends BaseExpandableListAdapter {
 			}
 			*/
 			if(iconView!=null){
-				int resource;
-				switch (item.getLight()) {
-				case GreenLight:
-					resource = R.drawable.green_light;
-					break;
-				case YellowLight:
-					resource = R.drawable.yellow_light;
-					break;
-				case RedLight:
-					resource = R.drawable.red_light;
-					break;
-				default:
-					resource = R.drawable.gray_light;
-					break;
-				}				
+				int resource = item.getLight().getResource();							
 				iconView.setImageResource(resource);
 			}
 		}

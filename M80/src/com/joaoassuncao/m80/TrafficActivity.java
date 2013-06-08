@@ -15,9 +15,12 @@ import java.util.TimerTask;
 
 import org.xml.sax.SAXException;
 
+import android.app.AlertDialog;
 import android.app.ExpandableListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.Shape;
@@ -33,8 +36,11 @@ import android.widget.Adapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.PopupWindow.OnDismissListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,11 +64,15 @@ public class TrafficActivity extends ExpandableListActivity {
 
 	private TrafficInformationAdapter adapter;
 	private Timer timer;
+	private FrameLayout frameLayout;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.traffic_info_view);
 		adapter = new TrafficInformationAdapter(this);
-		setListAdapter(adapter);		
+		setListAdapter(adapter);	
+		frameLayout = (FrameLayout) findViewById(R.id.traffic_info_view);
+		frameLayout.getForeground().setAlpha(0);
 	}	
 
 	@Override
@@ -89,18 +99,25 @@ public class TrafficActivity extends ExpandableListActivity {
 	}
 	
 	@Override
-	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View itemView = inflater.inflate(R.layout.traffic_item_view,null);
-		PopupWindow popup = new PopupWindow(itemView,200,300,false);
-		ShapeDrawable dw = new ShapeDrawable(new RectShape());
-		dw.getPaint().setColor(0x00FF00);		
-		//dw.setAlpha(220);		
-		popup.setBackgroundDrawable(dw);
-		popup.setOutsideTouchable(true);
-		//popup.showAsDropDown(v);
-		popup.showAtLocation(parent, Gravity.CENTER,0,0);
+	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {		
+		TrafficInformationItem item = adapter.getChild(groupPosition,childPosition);
+		if(item!=null)
+			showPopup(item);
 		return true;		
+	}
+	
+	private void showPopup(TrafficInformationItem item){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(item.getLocale());
+		builder.setMessage(item.getMessage());
+		builder.setIcon(item.getLight().getResource());		
+		builder.setPositiveButton("OK",
+		  new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {		    
+		   }
+		});
+		AlertDialog dialog = builder.create();
+		dialog.show();
 	}
 
 	protected void retrieveTrafficInfo() {
@@ -119,95 +136,7 @@ public class TrafficActivity extends ExpandableListActivity {
 		}
 		*/
 	}	
-	
-	
-	/*
-	public class MyExpandableListAdapter extends BaseExpandableListAdapter {
-		private List<TrafficInformationGroup> groups = Collections.emptyList();
-
-		public TrafficInformationItem getChild(int groupPosition, int childPosition) {
-			return groups.get(groupPosition).getItem(childPosition);
-		}
-
-		public long getChildId(int groupPosition, int childPosition) {
-			return childPosition;
-		}
-
-		public int getChildrenCount(int groupPosition) {
-			return groups.get(groupPosition).itemsCount();
-		}
-
-		public TextView getGenericView() {
-			// Layout parameters for the ExpandableListView
-			AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
-					ViewGroup.LayoutParams.MATCH_PARENT, 64);
-
-			TextView textView = new TextView(TrafficActivity.this);
-			textView.setLayoutParams(lp);
-			// Center the text vertically
-			textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
-			// Set the text starting position
-			textView.setPadding(36, 0, 0, 0);
-			return textView;
-		}
-
-		public View getChildView(int groupPosition, int childPosition,
-				boolean isLastChild, View convertView, ViewGroup parent) {
-			View v = convertView;
-			if (v == null) {
-				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				v = vi.inflate(R.layout.traffic_info_view, null);
-			}
-			TrafficInformationItem item = getChild(groupPosition, childPosition);
-			if (item != null) {
-				ImageView iconView = (ImageView) v
-						.findViewById(R.id.trafficInfoView_icon);
-				TextView localeView = (TextView) v
-						.findViewById(R.id.trafficInfoView_locale);
-				TextView messageView = (TextView) v
-						.findViewById(R.id.trafficInfoView_message);
-				if (localeView != null) {
-					localeView.setText(item.getLocale());
-				}
-				if (messageView != null) {
-					messageView.setText(item.getMessage());
-				}
-			}
-			return v;
-		}
-
-		public Object getGroup(int groupPosition) {
-			return groups.get(groupPosition);
-		}
-
-		public int getGroupCount() {
-			return groups.size();
-		}
-
-		public long getGroupId(int groupPosition) {
-			return groupPosition;
-		}
-
-		public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-			TextView textView = getGenericView();
-			textView.setText(getGroup(groupPosition).toString());
-			return textView;
-		}
-
-		public boolean isChildSelectable(int groupPosition, int childPosition) {
-			return true;
-		}
-
-		public boolean hasStableIds() {
-			return true;
-		}
-
-		public void setData(List<TrafficInformationGroup> data) {
-			this.groups = data;
-			notifyDataSetChanged();
-		}
-	}
-	*/
+			
 
 	private class RetrieveTrafficInfoTask extends AsyncTask<Void, Void, List<TrafficInformationGroup>> {
 
